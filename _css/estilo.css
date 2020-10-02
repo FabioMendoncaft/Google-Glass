@@ -206,5 +206,14 @@ footer#rodape{
 footer#rodape p{
     text-align: center;
 }
-
-
+#linke{
+    height: 15px;
+    margin-bottom: -1px;
+}
+#insta{
+    height: 15px;
+    margin-bottom: -2px;
+}
+#rp{
+    margin-bottom: -8px;
+}
