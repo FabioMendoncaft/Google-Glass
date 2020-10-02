@@ -5,7 +5,15 @@
     <title>Tud sobre google clas</title>
 </head>
     <link rel="stylesheet" href="_css/estilo.css">
-
+    <link rel="stylesheet" href="_css/form.css">
+    <script>
+        function calc_total(){
+            var qtd = (document.getElementById("cQtd").value);
+            tot = qtd * 1500;
+            document.getElementById("cTot").value = tot;
+        }
+    </script>
+    
     <body>
 
 <div id="interface">
@@ -28,40 +36,111 @@
         </ul>
     </nav>
 </header>
+<section id="corpo-full">
+    <article id="noticia-principal">
+        <header id="cabecalho-artigo">
+            <hgroup>
+                <h3>Fale Conosco > Contato</h3>
+                <h1>Formulário de Contato</h1>
+                <h2>Por Fabio Mendonça</h2>
+                <h3 class="direita">Atualizado em Setembro/2020</h3>
+            </hgrpup>
+        </header>
 
-Fale Conosco > Contato
-Formulário de Contato
-por Gustavo Guanabara
-Atualizado em 01/Maio/2013
+<form method="POST" id="fContato" action="mailto:fabinhomft@hotmail.com" oninput="calc_total()">     
 
-Identificação do Usuário
-    Nome:
-    Senha:
-    E-mail:
-    Sexo:
-        - Masculino
-        - Feminino
-    Data de Nascimento:
+<fieldset id="usuario"> 
+    <legend>Identificação do Usuário</legend>
+    <p><label for="cNome">Nome:</label> 
+        <input type="text" name="tNome" id="cNome" size="20" maxlength="30"   placeholder="ex: Joao"/>
+    </p>
+    
+    <p><label for="cSenha">Senha:</label> 
+        <input type="password" name="tSenha" id="cSenha" placeholder="8 dígitos" size="8" maxlength="8"/>
+    </p>
+    
+    <p><label for="cEmail">E-mail:</label> 
+        <input type="email" name="tEmail" id="cEmail" size="20" maxlength="40" placeholder="joao@joao.com"/>
+    </p>
+    
+    <fieldset id="sexo"><legend>Sexo:</legend>
+        <input type="radio" name="tSexo" id="cMasc"/> <label for="cMasc"> Masculino</label><br/>
+        <input type="radio" name="tSexo" id="cFem"/> <label for="cFem">Feminino</label>
+    </fieldset>     
+    
+    <p><label for="cData">Data de Nascimento:</label> 
+        <input type="date" name="tData" id="cData">
+    </p>
+</fieldset> 
 
-Endereço do Usuário
-    Logradouro:
-    Número:
-    Estado:
-    Cidade:
+<fieldset id="enderenco">
+    <legend>Endereço do Usuário</legend> 
+    <p><label for="cLogradouro">Logradouro:</label> 
+        <input type="text" name="tLogradouro" id="cLogradouro" size="13" maxlength="80" placeholder="Rua, AV"/>
+    </p>
+    
+    <p><label for="cNumero">Número:</label> 
+        <input type="number" name="tNumero" id="cNumero" min="0" max="99999"/>
+    </p>
+    
+    <p><label for="cEst">Estado:</label>
+        <select name="tEst" id="cEst">
+        
+        <optgroup label="Região Nordeste">
+            <option value="PE">Pernambuco</option>
+            <option value="PB">Paraiba</option>
+            <option value="AL">Alagoas</option>
+        </optgroup>  
+        
+        <optgroup label="Região Sudeste">
+            <option value="SP">São Paulo</option>
+            <option value="RJ">Rio de Janeiro</option>
+        </optgroup>    
+        </select>
+    </p>
+    
+    <p><label for="cCid">Cidade:</label>
+        <input type="text" name="tCit" id="cCit" maxlength="40" size="20" placeholder="Sua cidade" list="cidades"/>
+        <datalist id="cidades">
+            <option value="Recife"></option>
+            <option value="São Lourenço da Mata"></option>
+            <option value="Camaragibe"></option>
+            <option value="Olinda"></option>
+        </datalist>
+    </p>
+</fieldset>
 
-Mensagem do Usuário
-    Grau de Urgência:
-    Mensagem:
+<fieldset id="mensagem">
+    <legend>Mensagem do Usuário</legend> 
+    <p><label for="cUrg">Grau de Urgência:</label>
+        Mín<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="1"/>Max
+    </p>
+    <p><label for="cMsg">Mensagem:</label>
+        <textarea name="tMsg" id="CMsg" cols="35" rows="5" placeholder="Deixe aqui sua mensagem..."></textarea>
+    </p>
+</fieldset>
 
-Quero um Google Glass
-    Gostaria de adquirir um Google Glass quando disponível
-    Cor:
-    Quantidade:
-    Preço Total: R$
+<fieldset id="pedido">
+    <legend>Quero um Google Glass</legend> 
+    <p> <input type="checkbox" name="tPed" id="cPed" checked> 
+        <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label>
+    </p>
+    
+    <p><label for="cCor">Cor:</label>
+         <input type="color" name="tCor" id="cCor" value="#0000FF"/>
+    </p>
+   
+    <p><label for="cQtd">Quantidade:</label>
+        <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0">
+    </p>
+    <p><label for="cTot">Preço Total: R$</label>
+        <input type="text" name="tTot" id="cTot" placeholder="Total a pagar" readonly>
+    </p>
+</fieldset>
 
-
-[BOTÃO ENVIAR]
-
+<input type="image" name="tEnviar" src="_imagens/botao-enviar.png"/>
+    </article>
+</section>
 <footer id="rodape">
     <p>&copy Copyright 2020 - by Fabio Mendonça <br/>
     <a id="rs" href="http://www.linkedin.com/in/fabio-mendonça-530707180/" target="_blanck">Linkedin</a>  | <a  id="rs" href="http://www.instagram.com/fabynhomendonca/" target="_blanck">Instagran</a></p>
